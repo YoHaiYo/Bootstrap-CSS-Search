@@ -1,0 +1,35 @@
+
+
+.csssearch {  
+  display: flex;
+  justify-content: center;
+}
+#result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.on_version {
+    background-color: #316cff;
+}
+
+
+/* css code color */
+.selector {
+    color: #008cff; /* blue */
+}
+.property {
+    color: #ff7b00; /* orange */
+}
+.value, .function-name {
+    color: #ff4800; /* light orange */
+}
+.function-arg {
+    color: #008604; /* light green */
+}
+.css-rule {
+    margin-bottom: 10px; /* space between rules */
+    /* white-space: pre;  */
+    width: 50vw;
+    border: 2px solid red;
+}
