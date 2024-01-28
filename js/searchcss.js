@@ -19,7 +19,16 @@ document.querySelector('#ver532').addEventListener('click', function(){
 
 /// css 검색
 function formatCSSValue(value) {
-  return value.replace(/(\w+-*\w+)\(([^)]+)\)/g, '<span class="function-name">$1</span>(<span class="function-arg">$2</span>)');
+  let colorPreview = '';
+  
+  // Check if the value is a color code
+  const isColorCode = /^#([0-9A-Fa-f]{3}){1,2}$/.test(value.trim());
+  
+  if (isColorCode) {
+      colorPreview = `<div class="color-preview" style="background-color: ${value.trim()}"></div>`;
+  }
+  
+  return value.replace(/(\w+-*\w+)\(([^)]+)\)/g, '<span class="function-name">$1</span>(<span class="function-arg">$2</span>)') + colorPreview;
 }
 
 function formatCSSRule(rule) {
