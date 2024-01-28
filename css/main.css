@@ -1,5 +1,11 @@
-
-
+/* default */
+body {
+    background-color: #1f1f1f;    
+}
+header {
+    color: white;
+}
+/* input */
 .csssearch {  
   display: flex;
   justify-content: center;
@@ -12,24 +18,24 @@
 .on_version {
     background-color: #316cff;
 }
-
-
-/* css code color */
+/* output */
 .selector {
-    color: #008cff; /* blue */
+    color: #d7ba7d; /* blue */
 }
 .property {
-    color: #ff7b00; /* orange */
+    color: #9cdcf0; /* orange */
 }
 .value, .function-name {
-    color: #ff4800; /* light orange */
+    color: #ce916a; /* light orange */
 }
 .function-arg {
-    color: #008604; /* light green */
+    color: rgb(0, 174, 122); /* light green */
 }
 .css-rule {
     margin-bottom: 10px; /* space between rules */
     /* white-space: pre;  */
     width: 50vw;
-    border: 2px solid red;
+    border-bottom: 2px solid #316cff;
+    padding-bottom: 10px;
+    color: white;
 }
