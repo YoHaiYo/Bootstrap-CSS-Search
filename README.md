@@ -9,5 +9,5 @@
 
 Enjoy effortless CSS class discovery in Bootstrap! 🎨
 
-🚀 **Go to Site:**
- **🔗[Go to Site](https://yohaiyo.github.io/Bootstrap-Search.github.io/)**
+# Go to Site:
+**🔗[Go to Site](https://yohaiyo.github.io/Bootstrap-Search.github.io/)**

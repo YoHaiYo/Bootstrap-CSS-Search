@@ -1,41 +1,63 @@
 /* default */
 body {
-    background-color: #1f1f1f;    
+  background-color: #1f1f1f;
 }
+
 header {
-    color: white;
+  color: white;
 }
+
+header h1 a{
+  color: #fff !important;
+}
+header h1 a:hover{
+  text-decoration: none;
+}
+
 /* input */
-.csssearch {  
+.csssearch {
   display: flex;
   justify-content: center;
 }
+
 #result {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .on_version {
-    background-color: #316cff;
+  background-color: #316cff;
 }
+
 /* output */
 .selector {
-    color: #d7ba7d; /* blue */
+  color: #ffd374;
+  /* blue */
 }
+
 .property {
-    color: #9cdcf0; /* orange */
+  color: #9cdcf0;
+  /* orange */
 }
-.value, .function-name {
-    color: #ce916a; /* light orange */
+
+.value,
+.function-name {
+  color: #ce916a;
+  /* light orange */
 }
+
 .function-arg {
-    color: rgb(0, 174, 122); /* light green */
+  color: rgb(0, 174, 122);
+  /* light green */
 }
+
 .css-rule {
-    margin-bottom: 10px; /* space between rules */
-    /* white-space: pre;  */
-    width: 50vw;
-    border-bottom: 2px solid #316cff;
-    padding-bottom: 10px;
-    color: white;
+  margin-bottom: 10px;
+  /* space between rules */
+  /* white-space: pre;  */
+  width: 50vw;
+  border-bottom: 2px solid #ffffff;
+  padding-bottom: 10px;
+  color: white;
 }

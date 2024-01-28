@@ -1,5 +1,5 @@
 /// 부트스트랩 버전 선택
-let bootstrapver = "Bootstrap_v4.6.2.css";
+let bootstrapver = "Bootstrap_v5.3.2.css";
 
 document.querySelector('#ver462').addEventListener('click', function(){
   bootstrapver = "Bootstrap_v4.6.2.css"
