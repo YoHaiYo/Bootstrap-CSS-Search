@@ -86,27 +86,36 @@ function searchClass() {
   var stylesheets = document.styleSheets;
   var result = '';
 
-  for (var i = 0; i < stylesheets.length; i++) {
-      if (stylesheets[i].href && stylesheets[i].href.includes(bootstrapver)) {
-          var rules;
-          try {
-              rules = stylesheets[i].rules || stylesheets[i].cssRules;
-          } catch (e) {
-              console.error("Cannot access rules of stylesheet: ", stylesheets[i].href);
-              continue;
-          }
+  let hasResults = false; // Add a flag to check if there are any results
 
-          for (var j = 0; j < rules.length; j++) {
-              var rule = rules[j];
-              if (rule.selectorText && rule.selectorText.toLowerCase().includes(input)) {
-                  result += formatCSSRule(rule);
-              }
-          }
+  for (var i = 0; i < stylesheets.length; i++) {
+    if (stylesheets[i].href && stylesheets[i].href.includes(bootstrapver)) {
+      var rules;
+      try {
+        rules = stylesheets[i].rules || stylesheets[i].cssRules;
+      } catch (e) {
+        console.error("Cannot access rules of stylesheet: ", stylesheets[i].href);
+        continue;
       }
+
+      for (var j = 0; j < rules.length; j++) {
+        var rule = rules[j];
+        if (rule.selectorText && rule.selectorText.toLowerCase().includes(input)) {
+          result += formatCSSRule(rule);
+          hasResults = true; // Set the flag to true if there are results
+        }
+      }
+    }
   }
 
-  document.getElementById('result').innerHTML = result ? result : getAllCSS();
+  // Check if there are no results and display a message
+  if (!hasResults) {
+    result = 'No results found.';
+  }
+
+  document.getElementById('result').innerHTML = result;
 }
+
 
 window.onload = function() {
   document.getElementById('result').innerHTML = getAllCSS();
