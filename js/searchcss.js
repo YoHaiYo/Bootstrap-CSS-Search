@@ -1,21 +1,22 @@
-/// 부트스트랩 버전 선택
-let bootstrapver = "Bootstrap_v5.3.2.css";
+// 부트스트랩 버전 선택
+let bootstrapver = "Bootstrap_v5.3.2"; // 첫 선택 버전
 
-document.querySelector('#ver462').addEventListener('click', function(){
-  bootstrapver = "Bootstrap_v4.6.2.css"
-  searchClass()
-  document.querySelector('#ver532').classList.remove("on_version")
-  document.querySelector('#ver462').classList.add("on_version")
-  document.querySelector("#selectver").innerHTML="ver.4.6.2"
- })
-document.querySelector('#ver532').addEventListener('click', function(){
-  bootstrapver = "Bootstrap_v5.3.2.css"
-  searchClass()
-  document.querySelector('#ver462').classList.remove("on_version")
-  document.querySelector('#ver532').classList.add("on_version")
-  document.querySelector("#selectver").innerHTML="ver.5.3.2"
- })
+// 이벤트 리스너 추가
+document.querySelectorAll('.verbtns').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    // 모든 버튼의 on_version 클래스를 제거
+    document.querySelectorAll('.verbtns').forEach(function(btn) {
+      btn.classList.remove('on_version');
+    });
 
+    // 클릭된 버튼에 on_version 클래스 추가
+    btn.classList.add('on_version');
+
+    document.querySelector("#selectver").textContent = btn.value;
+    bootstrapver = btn.value; // 선택한 버전을 설정
+    searchClass(); // 클래스 검색 다시 수행
+  });
+});
 
 /// css 검색
 function formatCSSValue(value) {
