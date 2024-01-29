@@ -1,50 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bootstrap Search</title>
-  <meta name="description" content="Search and explore CSS classes in Bootstrap v4.6.2 and v5.3.2 using this unofficial tool. Effortlessly discover Bootstrap styles!" />
+  <meta name="description"
+    content="Search and explore CSS classes in Bootstrap v4.6.2 and v5.3.2 using this unofficial tool. Effortlessly discover Bootstrap styles!" />
   <link rel="shortcut icon" href="./img/bt_search_logo_favicon.ico" type="image/x-icon">
   <!-- <link rel="stylesheet" href="./tailwindcss/tailwindcss_v2.2.7.css"> -->
   <link rel="stylesheet" href="./bootstrap/Bootstrap_v5.3.2.css">
   <link rel="stylesheet" href="./bootstrap/Bootstrap_v4.6.2.css">
   <link rel="stylesheet" href="./css/main.css">
 </head>
+
 <body>
-  <header class="text-center ">
-    <h1><a href="/">
-      <!-- <img src="./img/bt_search_logo.png" alt="logo"> -->
-      Bootstrap Search
-    </a></h1>
-    <div class="csssearch mt-3">
-      <input type="text" id="classSearch" placeholder="Enter class name" onchange="searchClass()">
-      <button onclick="searchClass()" class="btn-danger">Search</button>
-    </div>
-    
-    <div class="d-flex justify-content-evenly align-items-center ">
-      
-      <div><a target="_blank" href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap Docs</a></div>
+  <header class="text-startxx">
+    <div class="d-lg-flex justify-content-center justify-content-lg-between align-items-center">
+      <h1 class="ms-5 mt-3"><a href="https://yohaiyo.github.io/Bootstrap-Search.github.io/">
+          <img src="./img/bt_search_logo.png" alt="logo">
+          Bootstrap Search
+        </a></h1>
+      <span class="csssearch mt-3">
+        <input type="text" id="classSearch" placeholder="Enter class name" onchange="searchClass()"
+          style="min-width: 350px;">
+        <button onclick="searchClass()" class="btn-danger">Search</button>
+      </span>
+
+      <div class="d-flex justify-content-center align-items-center ">
+        <div class="mt-3">
+          <button class="verbtns on_version" value="Bootstrap_v5.3.2">Bootstrap_v5.3.2</button>
+          <button class="verbtns" value="Bootstrap_v4.6.2">Bootstrap_v4.6.2</button>
+          <!-- <button class="verbtns" value="tailwindcss_v2.2.7">tailwindcss_v2.2.7</button> -->
+          <div>you choose : <span id="selectver">Bootstrap_v5.3.2</span></div>
+        </div>
+        <div class="mx-3"><a target="_blank"
+            href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap
+            Docs</a>
+        </div>
 
 
-      <div class=" my-2" >
-        <button class="verbtns on_version" value="Bootstrap_v5.3.2">Bootstrap_v5.3.2</button>
-        <button class="verbtns" value="Bootstrap_v4.6.2">Bootstrap_v4.6.2</button>
-        <!-- <button class="verbtns" value="tailwindcss_v2.2.7">tailwindcss_v2.2.7</button> -->
-        <div>you choose : <span id="selectver">Bootstrap_v5.3.2</span></div>
+        <div class="mx-3"><a target="_blank" href="https://github.com/YoHaiYo/Bootstrap-Search.github.io">About this
+            Project</a>
+        </div>
+
       </div>
-
-      <div><a target="_blank" href="https://github.com/YoHaiYo/Bootstrap-Search.github.io">About this Project</a></div>
     </div>
+    </div>
+
+
     <hr class="bg-primary">
   </header>
   <main class="">
     <div id="result"></div>
   </main>
 
-  <script src="./js/searchcss.js"></script>  
+  <script src="./js/searchcss.js"></script>
   <script>
-   
+
   </script>
 </body>
+
 </html>

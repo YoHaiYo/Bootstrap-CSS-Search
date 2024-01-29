@@ -9,5 +9,8 @@
 
 Enjoy effortless CSS class discovery in Bootstrap! 🎨
 
+# Update scheduled
+- Class name folding function to be added.
+
 # Go to Site
 **🔗[Demo](https://yohaiyo.github.io/Bootstrap-Search.github.io/)**
