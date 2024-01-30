@@ -36,6 +36,11 @@ header h1 a:hover {
 .on_version {
   background-color: #316cff;
 }
+/* recommend */
+/* .recommend {
+  display: flex;
+  justify-content: center;
+} */
 
 /* output */
 .selector {
@@ -77,4 +82,16 @@ header h1 a:hover {
 
   margin: 0 5px;
   /* Adjust the spacing as needed */
+}
+.media {
+  display: inline-block;
+  /* background-color: #a251a9; */
+  color: #c96bd4;
+}
+.media_range {
+  color: #ce7070;
+  /* font-weight: bold */
+}
+.inner_bracket {
+  color: #ce70cb;
 }

@@ -32,8 +32,12 @@ function formatCSSValue(value) {
   return value.replace(/(\w+-*\w+)\(([^)]+)\)/g, '<span class="function-name">$1</span>(<span class="function-arg">$2</span>)') + colorPreview;
 }
 
-function formatCSSRule(rule) {
-  const selector = rule.selectorText ? `<span class="selector">${rule.selectorText}</span> {<br/>` : '';
+function formatCSSRule(rule, mediaQuery) {
+  // const selector = rule.selectorText ? `<span class="selector">${rule.selectorText}</span> <span class="inner_bracket">{</span><br/>` : '';  
+
+  let selector = '';
+  
+
   let properties = [];
 
   if (rule.style) {
@@ -47,8 +51,26 @@ function formatCSSRule(rule) {
 
   let formattedProperties = properties.join('<br/>');
   let closingBrace = properties.length > 0 ? `<br/>}` : '}';
+  
+  let mediaTag = mediaQuery ? `<div class="media">@media <span class="media_range">${mediaQuery}</span></div> {<br>` : '';
+  // let openMedia = mediaQuery ? "{" : "";
+  let closeMedia = mediaQuery ? `<span class="inner_bracket"><br>}</span>` : "";
 
-  return `<div class="css-rule">${selector}${formattedProperties}${closingBrace}</div>`;
+  /// 미디어쿼리있을때 없을때 괄호색 다르게
+  if (rule.selectorText) {
+    selector = `<span class="selector">${rule.selectorText}</span> <span >{</span><br/>`;
+    if (mediaTag) {
+      selector = `<span class="selector">${rule.selectorText}</span> <span class="inner_bracket">{</span><br/>`;
+    } 
+  } else {
+    selector = "";
+  }
+
+  return `<div class="css-rule">${mediaTag}
+  ${selector}${formattedProperties}
+  ${closeMedia}
+  ${closingBrace}
+  </div>`;
 }
 
 function processStylesheet(stylesheet) {
@@ -81,13 +103,16 @@ function getAllCSS() {
 
   return allCSS;
 }
+function recommendClass(v) {
+  document.getElementById('classSearch').value = v;
+}
 
 function searchClass() {
   var input = document.getElementById('classSearch').value.toLowerCase();
   var stylesheets = document.styleSheets;
   var result = '';
 
-  let hasResults = false; // Add a flag to check if there are any results
+  let hasResults = false; // 결과가 있는지 확인하는 플래그
 
   for (var i = 0; i < stylesheets.length; i++) {
     if (stylesheets[i].href && stylesheets[i].href.includes(bootstrapver)) {
@@ -101,22 +126,32 @@ function searchClass() {
 
       for (var j = 0; j < rules.length; j++) {
         var rule = rules[j];
-        if (rule.selectorText && rule.selectorText.toLowerCase().includes(input)) {
+        var mediaQuery = '';
+
+        if (rule instanceof CSSMediaRule) {
+          mediaQuery = rule.conditionText;
+          for (var k = 0; k < rule.cssRules.length; k++) {
+            var innerRule = rule.cssRules[k];
+            if (innerRule.selectorText && innerRule.selectorText.toLowerCase().includes(input)) {
+              result += formatCSSRule(innerRule, mediaQuery);
+              hasResults = true;
+            }
+          }
+        } else if (rule.selectorText && rule.selectorText.toLowerCase().includes(input)) {
           result += formatCSSRule(rule);
-          hasResults = true; // Set the flag to true if there are results
+          hasResults = true;
         }
       }
     }
   }
 
-  // Check if there are no results and display a message
+  // 결과가 없으면 메시지 표시
   if (!hasResults) {
     result = 'No results found.';
   }
 
   document.getElementById('result').innerHTML = result;
 }
-
 
 window.onload = function() {
   document.getElementById('result').innerHTML = getAllCSS();

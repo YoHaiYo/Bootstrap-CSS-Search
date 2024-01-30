@@ -49,9 +49,19 @@
     </div>
 
 
-    <hr class="bg-primary">
   </header>
+  <hr class="bg-primary">
   <main class="">
+    <section class="recommend">
+      <div class="d-flex justify-content-center align-items-center">
+        <p class="h4 text-white ">Search Keywords : </p>
+        <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`container`);searchClass();">container</button>
+        <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`navbar`);searchClass();">navbar</button>
+        <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`flex`);searchClass();">flex</button>
+        <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`col-`);searchClass();">col-</button>
+        <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`-lg`);searchClass();">-lg</button>
+      </div>
+    </section>
     <div id="result"></div>
   </main>
 
