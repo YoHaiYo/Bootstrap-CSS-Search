@@ -12,6 +12,15 @@
   <link rel="stylesheet" href="./bootstrap/Bootstrap_v5.3.2.css">
   <link rel="stylesheet" href="./bootstrap/Bootstrap_v4.6.2.css">
   <link rel="stylesheet" href="./css/main.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QLTXPDLLJ2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-QLTXPDLLJ2');
+  </script>
 </head>
 
 <body>
@@ -55,7 +64,8 @@
     <section class="recommend">
       <div class="d-flex justify-content-center align-items-center">
         <p class="h4 text-white ">Search Keywords : </p>
-        <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`container`);searchClass();">container</button>
+        <button class="btn btn-primary mx-2 py-0"
+          onclick="recommendClass(`container`);searchClass();">container</button>
         <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`navbar`);searchClass();">navbar</button>
         <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`flex`);searchClass();">flex</button>
         <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`col-`);searchClass();">col-</button>
