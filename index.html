@@ -24,33 +24,36 @@
 </head>
 
 <body>
-  <header class="text-startxx">
+  <header class="" >
     <div class="d-lg-flex justify-content-center justify-content-lg-between align-items-center">
-      <h1 class="ms-5 mt-3"><a href="https://yohaiyo.github.io/Bootstrap-Search.github.io/">
+      <h1 class="ms-lg-5 mt-3 d-flex">
+        <a href="https://yohaiyo.github.io/Bootstrap-Search.github.io/" class="text-nowrap">
           <img src="./img/bt_search_logo.png" alt="logo">
           Bootstrap Search
-        </a></h1>
-      <span class="csssearch mt-3">
-        <input type="text" id="classSearch" placeholder="Enter class name" onchange="searchClass()"
-          style="min-width: 350px;">
+        </a>
+      </h1>
+      <div class="classSearchWrap d-flex justify-content-center mt-3">
+        <input type="text" id="classSearch" class="" placeholder="Enter class name" onchange="searchClass()">
         <button onclick="searchClass()" class="btn-danger">Search</button>
-      </span>
+      </div>
 
-      <div class="d-flex justify-content-center align-items-center ">
-        <div class="mt-3">
-          <button class="verbtns on_version" value="Bootstrap_v5.3.2">Bootstrap_v5.3.2</button>
-          <button class="verbtns" value="Bootstrap_v4.6.2">Bootstrap_v4.6.2</button>
+      <div class="ms-2 d-flex justify-content-center align-items-center ">
+
+        <div class="ms-2 mt-3 d-flex justify-content-center align-items-center ">
+          <button class="verbtns on_version" value="Bootstrap_v5.3.2">ver.5.3.2</button>
+          <button class="verbtns" value="Bootstrap_v4.6.2">ver.4.6.2</button>
           <!-- <button class="verbtns" value="tailwindcss_v2.2.7">tailwindcss_v2.2.7</button> -->
-          <div>you choose : <span id="selectver">Bootstrap_v5.3.2</span></div>
-        </div>
-        <div class="mx-3"><a target="_blank"
-            href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap
-            Docs</a>
+          <!-- <div>you choose : <span id="selectver">Bootstrap_v5.3.2</span></div> -->
+          <span id="selectver"></span>
         </div>
 
-
-        <div class="mx-3"><a target="_blank" href="https://github.com/YoHaiYo/Bootstrap-Search.github.io">About this
-            Project</a>
+        <div class="d-flex justify-content-center align-items-center " >
+          <div class="mx-3"><a target="_blank"
+              href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap
+              Docs</a>
+          </div>
+          <div class="mx-3"><a target="_blank" href="https://github.com/YoHaiYo/Bootstrap-Search.github.io">GitHub</a>
+          </div>
         </div>
 
       </div>
@@ -61,18 +64,16 @@
   </header>
   <hr class="bg-primary">
   <main class="">
-    <section class="recommend">
+    <section class="recommend mb-2">
       <div class="d-flex justify-content-center align-items-center">
-        <p class="h4 text-white ">Search Keywords : </p>
-        <button class="btn btn-primary mx-2 py-0"
-          onclick="recommendClass(`container`);searchClass();">container</button>
-        <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`navbar`);searchClass();">navbar</button>
+        <!-- <p class="h4 text-white ">Keywords </p> -->
         <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`flex`);searchClass();">flex</button>
+        <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`text`);searchClass();">text</button>        
         <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`col-`);searchClass();">col-</button>
         <button class="btn btn-primary mx-2 py-0" onclick="recommendClass(`-lg`);searchClass();">-lg</button>
       </div>
     </section>
-    <div id="result"></div>
+    <div id="result" ></div>
   </main>
 
   <script src="./js/searchcss.js"></script>

@@ -21,10 +21,31 @@ header h1 a:hover {
 }
 
 /* input */
-.csssearch {
-  display: flex;
-  justify-content: center;
+  #classSearch {
+      width: 400px;
+  }
+@media (max-width: 1452px) {
+  #classSearch {
+    width: 300px;
+  }
 }
+@media (max-width: 1452px) {
+  #classSearch {
+    width: 300px;
+  }
+}
+@media (max-width: 1200px) {
+  #classSearch {
+    width: 100%;
+  }
+}
+@media (max-width: 993px) {
+  .classSearchWrap {
+    margin: 0 30px;  
+  }
+}
+
+
 
 #result {
   display: flex;
@@ -68,10 +89,25 @@ header h1 a:hover {
   margin-bottom: 10px;
   /* space between rules */
   /* white-space: pre;  */
-  width: 50vw;
+  width: 90vw;
   border-bottom: 2px solid #ffffff;
   padding-bottom: 10px;
   color: white;
+}
+@media (min-width: 992px) {
+  .css-rule {    
+    width: 80vw;
+  }
+}
+@media (min-width: 1092px) {
+  .css-rule {    
+    width: 65vw;
+  }
+}
+@media (min-width: 1192px) {
+  .css-rule {    
+    width: 50vw;
+  }
 }
 
 .color-preview {

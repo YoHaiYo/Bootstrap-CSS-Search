@@ -12,7 +12,7 @@ document.querySelectorAll('.verbtns').forEach(function(btn) {
     // 클릭된 버튼에 on_version 클래스 추가
     btn.classList.add('on_version');
 
-    document.querySelector("#selectver").textContent = btn.value;
+    // document.querySelector("#selectver").textContent = btn.value;
     bootstrapver = btn.value; // 선택한 버전을 설정
     searchClass(); // 클래스 검색 다시 수행
   });
