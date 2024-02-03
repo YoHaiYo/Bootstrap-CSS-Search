@@ -1,6 +1,7 @@
 /* default */
 body {
   background-color: #1f1f1f;
+  overflow-x: hidden;
 }
 
 header {
@@ -131,3 +132,21 @@ header h1 a:hover {
 .inner_bracket {
   color: #ce70cb;
 }
+
+.deleteKeyword {
+  /* cursor: pointer;
+  position: absolute;
+  left: 110%; */
+  color: white;
+  font-weight: bold;
+  font-size: 14px;  
+}
+
+/* #latest {
+  overflow-x: scroll;
+}
+@media (min-width : 592px) {
+  #latest {
+    overflow-x: hidden;
+  }  
+} */

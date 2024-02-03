@@ -104,7 +104,7 @@ function getAllCSS() {
   return allCSS;
 }
 function recommendClass(v) {
-  document.getElementById('classSearch').value = v;
+  document.getElementById('classSearch').value = v;  
 }
 
 function searchClass() {
@@ -132,12 +132,12 @@ function searchClass() {
           mediaQuery = rule.conditionText;
           for (var k = 0; k < rule.cssRules.length; k++) {
             var innerRule = rule.cssRules[k];
-            if (innerRule.selectorText && innerRule.selectorText.toLowerCase().includes(input)) {
+            if (innerRule.selectorText && innerRule.selectorText.toLowerCase().includes(input )) {
               result += formatCSSRule(innerRule, mediaQuery);
               hasResults = true;
             }
           }
-        } else if (rule.selectorText && rule.selectorText.toLowerCase().includes(input)) {
+        } else if (rule.selectorText && rule.selectorText.toLowerCase().includes(input )) {
           result += formatCSSRule(rule);
           hasResults = true;
         }
@@ -151,6 +151,7 @@ function searchClass() {
   }
 
   document.getElementById('result').innerHTML = result;
+
 }
 
 window.onload = function() {
