@@ -83,10 +83,11 @@ function makeLatest() {
 
   let latestbtn = "";
   latestSearches.map((el, idx) => {
-    latestbtn += `<button onclick="setSearchValue('${el}');" class="latestbtn btn btn-primary m-2 px-1 py-0">
+    latestbtn += `<button onclick="setSearchValue('${el}');" class="latestbtn btn btn-primary m-0 ml-2 px-1 py-0">
       ${el}
-      <span class="deleteKeyword" onclick="deleteLatest(${idx})"><i class="bi bi-x-lg ms-2"></i></span>
-    </button>`
+      
+    </button>
+    <button class="deleteKeyword bi bi-x-lg btn btn-primary m-0 px-1 py-0" onclick="deleteLatest(${idx})"></button>`
   });
 
   document.querySelector("#latest").innerHTML = latestbtn;

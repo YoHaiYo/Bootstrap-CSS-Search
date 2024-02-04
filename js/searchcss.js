@@ -51,14 +51,19 @@ function formatCSSRule(rule, mediaQuery) {
 
   let formattedProperties = properties.join('<br/>');
   let closingBrace = properties.length > 0 ? `<br/>}` : '}';
-  
-  let mediaTag = mediaQuery ? `<div class="media">@media <span class="media_range">${mediaQuery}</span></div> {<br>` : '';
+  // csstoggle : css 접기/펴기 기능. bi 남겨놔야 부트아이콘 적용됨.
+  let mediaTag = mediaQuery ? `
+    <div class="media">
+    <span class="csstoggle bi" onclick="toggleActive(this)"></span>
+    @media 
+    <span class="media_range">${mediaQuery}</span>
+    </div> {<br>` : '';
   // let openMedia = mediaQuery ? "{" : "";
   let closeMedia = mediaQuery ? `<span class="inner_bracket"><br>}</span>` : "";
 
   /// 미디어쿼리있을때 없을때 괄호색 다르게
-  if (rule.selectorText) {
-    selector = `<span class="selector">${rule.selectorText}</span> <span >{</span><br/>`;
+  if (rule.selectorText) { // csstoggle : css 접기/펴기 기능. bi 남겨놔야 부트아이콘 적용됨.
+    selector = `<span class="selector"><span class="csstoggle bi " onclick="toggleActive(this)"></span> ${rule.selectorText}</span> <span >{</span><br/>`;
     if (mediaTag) {
       selector = `<span class="selector">${rule.selectorText}</span> <span class="inner_bracket">{</span><br/>`;
     } 
@@ -71,6 +76,24 @@ function formatCSSRule(rule, mediaQuery) {
   ${closeMedia}
   ${closingBrace}
   </div>`;
+}
+
+  // css 접기/펴기함수
+  // document.
+  function toggleActive(element) {
+    const el = element.parentElement.parentElement; // css-rule 태그까지 접근
+    el.classList.toggle('active'); // css-rule에 active 추가
+    element.classList.toggle('active'); // 자신에게도 active 추가
+
+    
+}
+ // 전체접기
+function toggleAll() {
+  const el = document.querySelectorAll('.css-rule'); 
+  // querySelectorAll 로 모든 태그를 잡았으니 forEach로 적용해야됨.
+  el.forEach(function(element) {
+      element.classList.toggle('active');
+  });
 }
 
 function processStylesheet(stylesheet) {

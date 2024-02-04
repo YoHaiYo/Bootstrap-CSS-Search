@@ -87,6 +87,7 @@ header h1 a:hover {
 }
 
 .css-rule {
+  /* position: relative; */
   margin-bottom: 10px;
   /* space between rules */
   /* white-space: pre;  */
@@ -133,20 +134,33 @@ header h1 a:hover {
   color: #ce70cb;
 }
 
+/* latest */
+.latestbtn {
+  border-radius: .5rem 0 0 .5rem !important;
+}
 .deleteKeyword {
-  /* cursor: pointer;
-  position: absolute;
-  left: 110%; */
   color: white;
   font-weight: bold;
-  font-size: 14px;  
+  font-size: 16px;  
+  border-radius: 0 .5rem .5rem 0 !important;
+  border-left: 1px solid rgba(255, 250, 250, 0.574);
 }
 
-/* #latest {
-  overflow-x: scroll;
+/* css toggle */
+.csstoggle {
+  cursor: pointer;
+  color: snow;
+  opacity: .75;
 }
-@media (min-width : 592px) {
-  #latest {
-    overflow-x: hidden;
-  }  
-} */
+/* \F229 : 아래쐐기모양. */
+.csstoggle::before {
+  content: "\F229";
+}
+/* F231 : 오른쪽쐐기모양. */
+.csstoggle.active::before {
+  content: "\F231";
+}
+.css-rule.active {
+  overflow: hidden;
+  height: 32px;
+}

@@ -63,19 +63,26 @@
 
 
   </header>
-  <hr class="bg-primary">
+  <hr class="bg-primary m-2">
   <main class="">
     <section class="recommend mb-2">
       
       <div id="latest" class="d-flex flex-wrap justify-content-center align-items-center">
         <!-- id="latest" : 동적객체로 최근검색어 생성관리 -->
       </div>
+      
       <!-- <div class="text-end">
         <button onclick="showKeyword()">로컬저장소 확인</button>
-        <button onclick="deleteKeyword()">Clear All</button>
+        <button onclick="deleteKeyword()">Clear All</button>        
       </div> -->
     </section>
-    <div id="result" ></div>
+    <section class="d-flex justify-content-center">
+      <button onclick="toggleAll()" class="toggleAll bi btn btn-success m-0 py-0 px-1">Toggle All</button> 
+    </section>
+    
+    <div id="result" >
+      <!-- id="result" : 동적객체로 검색결과 생성관리 -->
+    </div>
   </main>
 
   <script src="./js/latest.js"></script>
@@ -83,3 +90,4 @@
 </body>
 
 </html>
+
