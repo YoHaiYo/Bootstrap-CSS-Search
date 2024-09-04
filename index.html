@@ -1,96 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Search</title>
+    <meta
+      name="description"
+      content="Search and explore CSS classes in Bootstrap v4.6.2 and v5.3.2 using this unofficial tool. Effortlessly discover Bootstrap styles!"
+    />
+    <link
+      rel="shortcut icon"
+      href="./img/bt_search_logo_favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- <link rel="stylesheet" href="./tailwindcss/tailwindcss_v2.2.7.css"> -->
+    <link rel="stylesheet" href="./bootstrap/Bootstrap_v5.3.2.css" />
+    <link rel="stylesheet" href="./bootstrap/Bootstrap_v4.6.2.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <!-- Google Adsense -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5995650770521246"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-E78EZVD9C5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Search</title>
-  <meta name="description"
-    content="Search and explore CSS classes in Bootstrap v4.6.2 and v5.3.2 using this unofficial tool. Effortlessly discover Bootstrap styles!" />
-  <link rel="shortcut icon" href="./img/bt_search_logo_favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <!-- <link rel="stylesheet" href="./tailwindcss/tailwindcss_v2.2.7.css"> -->
-  <link rel="stylesheet" href="./bootstrap/Bootstrap_v5.3.2.css">
-  <link rel="stylesheet" href="./bootstrap/Bootstrap_v4.6.2.css">
-  <link rel="stylesheet" href="./css/main.css">
-  <!-- Google Adsense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5995650770521246"
-  crossorigin="anonymous"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E78EZVD9C5"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+      gtag("config", "G-E78EZVD9C5");
+    </script>
+  </head>
 
-    gtag('config', 'G-E78EZVD9C5');
-  </script>
-</head>
-
-<body>
-  <header class="" >
-    <div class="d-lg-flex justify-content-center justify-content-lg-between align-items-center">
-      <h1 class="ms-lg-5 mt-3 d-flex">
-        <a href="https://yohaiyo.github.io/Bootstrap-Search.github.io/" class="text-nowrap">
-          <img src="./img/bt_search_logo.png" alt="logo">
-          Bootstrap Search
-        </a>
-      </h1>
-      <div class="classSearchWrap d-flex justify-content-center mt-3">
-        <input type="text" id="classSearch" class="" placeholder="Enter class name" onchange="searchClass();">
-        <button id="classSearchBtn" onclick="searchClass();saveKeyword();makeLatest();" class="btn-danger">Search</button>
-      </div>
-
-      <div class="ms-2 d-flex justify-content-center align-items-center ">
-
-        <div class="ms-2 mt-3 d-flex justify-content-center align-items-center ">
-          <button class="verbtns on_version" value="Bootstrap_v5.3.2">ver.5.3.2</button>
-          <button class="verbtns" value="Bootstrap_v4.6.2">ver.4.6.2</button>
-          <!-- <button class="verbtns" value="tailwindcss_v2.2.7">tailwindcss_v2.2.7</button> -->
-          <!-- <div>you choose : <span id="selectver">Bootstrap_v5.3.2</span></div> -->
-          <span id="selectver"></span>
+  <body>
+    <header class="">
+      <div
+        class="d-lg-flex justify-content-center justify-content-lg-between align-items-center"
+      >
+        <h1 class="ms-lg-5 mt-3 d-flex">
+          <a
+            href="https://yohaiyo.github.io/Bootstrap-Search.github.io/"
+            class="text-nowrap"
+          >
+            <img src="./img/bt_search_logo.png" alt="logo" />
+            Bootstrap Search
+          </a>
+        </h1>
+        <div class="classSearchWrap d-flex justify-content-center mt-3">
+          <input
+            type="text"
+            id="classSearch"
+            class=""
+            placeholder="Enter class name"
+            onchange="searchClass();"
+          />
+          <button
+            id="classSearchBtn"
+            onclick="searchClass();saveKeyword();makeLatest();"
+            class="btn-danger"
+          >
+            Search
+          </button>
         </div>
 
-        <div class="d-flex justify-content-center align-items-center " >
-          <div class="mx-3"><a target="_blank"
-              href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap
-              Docs</a>
+        <div class="ms-2 d-flex justify-content-center align-items-center">
+          <div
+            class="ms-2 mt-3 d-flex justify-content-center align-items-center"
+          >
+            <button class="verbtns on_version" value="Bootstrap_v5.3.2">
+              ver.5.3.2
+            </button>
+            <button class="verbtns" value="Bootstrap_v4.6.2">ver.4.6.2</button>
+            <!-- <button class="verbtns" value="tailwindcss_v2.2.7">tailwindcss_v2.2.7</button> -->
+            <!-- <div>you choose : <span id="selectver">Bootstrap_v5.3.2</span></div> -->
+            <span id="selectver"></span>
           </div>
-          <div class="mx-3"><a target="_blank" href="https://github.com/YoHaiYo/Bootstrap-Search.github.io">GitHub</a>
+
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="mx-3">
+              <a
+                target="_blank"
+                href="https://getbootstrap.com/docs/5.3/getting-started/introduction/"
+                >Bootstrap Docs</a
+              >
+            </div>
+            <div class="mx-3">
+              <a
+                target="_blank"
+                href="https://github.com/YoHaiYo/Bootstrap-Search.github.io"
+                >GitHub</a
+              >
+            </div>
           </div>
         </div>
-
       </div>
-    </div>
-    </div>
+    </header>
+    <hr class="bg-primary m-2" />
+    <main class="">
+      <section class="recommend mb-2">
+        <div
+          id="latest"
+          class="d-flex flex-wrap justify-content-center align-items-center"
+        >
+          <!-- id="latest" : 동적객체로 최근검색어 생성관리 -->
+        </div>
 
-
-  </header>
-  <hr class="bg-primary m-2">
-  <main class="">
-    <section class="recommend mb-2">
-      
-      <div id="latest" class="d-flex flex-wrap justify-content-center align-items-center">
-        <!-- id="latest" : 동적객체로 최근검색어 생성관리 -->
-      </div>
-      
-      <!-- <div class="text-end">
+        <!-- <div class="text-end">
         <button onclick="showKeyword()">로컬저장소 확인</button>
         <button onclick="deleteKeyword()">Clear All</button>        
       </div> -->
-    </section>
-    <section class="d-flex justify-content-center">
-      <button onclick="toggleAll()" class="toggleAll bi btn btn-success m-0 py-0 px-1">Toggle All</button> 
-    </section>
-    
-    <div id="result" >
-      <!-- id="result" : 동적객체로 검색결과 생성관리 -->
-    </div>
-  </main>
+      </section>
+      <section class="d-flex justify-content-center">
+        <button
+          onclick="toggleAll()"
+          class="toggleAll bi btn btn-success m-0 py-0 px-1"
+        >
+          Toggle All
+        </button>
+      </section>
 
-  <script src="./js/latest.js"></script>
-  <script src="./js/searchcss.js"></script>
-</body>
+      <div id="result">
+        <!-- id="result" : 동적객체로 검색결과 생성관리 -->
+      </div>
+    </main>
 
+    <script src="./js/latest.js"></script>
+    <script src="./js/searchcss.js"></script>
+  </body>
 </html>
-
