@@ -1,7 +1,7 @@
 /* default */
 body {
   background-color: #1f1f1f;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 header {
@@ -22,9 +22,9 @@ header h1 a:hover {
 }
 
 /* input */
-  #classSearch {
-      width: 400px;
-  }
+#classSearch {
+  width: 400px;
+}
 @media (max-width: 1452px) {
   #classSearch {
     width: 300px;
@@ -42,11 +42,9 @@ header h1 a:hover {
 }
 @media (max-width: 993px) {
   .classSearchWrap {
-    margin: 0 30px;  
+    margin: 0 30px;
   }
 }
-
-
 
 #result {
   display: flex;
@@ -97,17 +95,17 @@ header h1 a:hover {
   color: white;
 }
 @media (min-width: 992px) {
-  .css-rule {    
+  .css-rule {
     width: 80vw;
   }
 }
 @media (min-width: 1092px) {
-  .css-rule {    
+  .css-rule {
     width: 65vw;
   }
 }
 @media (min-width: 1192px) {
-  .css-rule {    
+  .css-rule {
     width: 50vw;
   }
 }
@@ -136,13 +134,13 @@ header h1 a:hover {
 
 /* latest */
 .latestbtn {
-  border-radius: .5rem 0 0 .5rem !important;
+  border-radius: 0.5rem 0 0 0.5rem !important;
 }
 .deleteKeyword {
   color: white;
   font-weight: bold;
-  font-size: 16px;  
-  border-radius: 0 .5rem .5rem 0 !important;
+  font-size: 16px;
+  border-radius: 0 0.5rem 0.5rem 0 !important;
   border-left: 1px solid rgba(255, 250, 250, 0.574);
 }
 
@@ -150,7 +148,7 @@ header h1 a:hover {
 .csstoggle {
   cursor: pointer;
   color: snow;
-  opacity: .75;
+  opacity: 0.75;
 }
 /* \F229 : 아래쐐기모양. */
 .csstoggle::before {

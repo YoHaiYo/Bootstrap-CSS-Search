@@ -2,15 +2,15 @@
 let bootstrapver = "Bootstrap_v5.3.2"; // 첫 선택 버전
 
 // 이벤트 리스너 추가
-document.querySelectorAll('.verbtns').forEach(function(btn) {
-  btn.addEventListener('click', function() {
+document.querySelectorAll(".verbtns").forEach(function (btn) {
+  btn.addEventListener("click", function () {
     // 모든 버튼의 on_version 클래스를 제거
-    document.querySelectorAll('.verbtns').forEach(function(btn) {
-      btn.classList.remove('on_version');
+    document.querySelectorAll(".verbtns").forEach(function (btn) {
+      btn.classList.remove("on_version");
     });
 
     // 클릭된 버튼에 on_version 클래스 추가
-    btn.classList.add('on_version');
+    btn.classList.add("on_version");
 
     // document.querySelector("#selectver").textContent = btn.value;
     bootstrapver = btn.value; // 선택한 버전을 설정
@@ -20,53 +20,64 @@ document.querySelectorAll('.verbtns').forEach(function(btn) {
 
 /// css 검색
 function formatCSSValue(value) {
-  let colorPreview = '';
-  
+  let colorPreview = "";
+
   // Check if the value is a color code
   const isColorCode = /^#([0-9A-Fa-f]{3}){1,2}$/.test(value.trim());
-  
+
   if (isColorCode) {
-      colorPreview = `<div class="color-preview" style="background-color: ${value.trim()}"></div>`;
+    colorPreview = `<div class="color-preview" style="background-color: ${value.trim()}"></div>`;
   }
-  
-  return value.replace(/(\w+-*\w+)\(([^)]+)\)/g, '<span class="function-name">$1</span>(<span class="function-arg">$2</span>)') + colorPreview;
+
+  return (
+    value.replace(
+      /(\w+-*\w+)\(([^)]+)\)/g,
+      '<span class="function-name">$1</span>(<span class="function-arg">$2</span>)'
+    ) + colorPreview
+  );
 }
 
 function formatCSSRule(rule, mediaQuery) {
-  // const selector = rule.selectorText ? `<span class="selector">${rule.selectorText}</span> <span class="inner_bracket">{</span><br/>` : '';  
+  // const selector = rule.selectorText ? `<span class="selector">${rule.selectorText}</span> <span class="inner_bracket">{</span><br/>` : '';
 
-  let selector = '';
-  
+  let selector = "";
 
   let properties = [];
 
   if (rule.style) {
-      for (let property of rule.style) {
-          if (rule.style.getPropertyValue(property)) {
-              let value = formatCSSValue(rule.style.getPropertyValue(property).trim());
-              properties.push(`&nbsp;&nbsp;<span class="property">${property}</span>: <span class="value">${value}</span>;`);
-          }
+    for (let property of rule.style) {
+      if (rule.style.getPropertyValue(property)) {
+        let value = formatCSSValue(
+          rule.style.getPropertyValue(property).trim()
+        );
+        properties.push(
+          `&nbsp;&nbsp;<span class="property">${property}</span>: <span class="value">${value}</span>;`
+        );
       }
+    }
   }
 
-  let formattedProperties = properties.join('<br/>');
-  let closingBrace = properties.length > 0 ? `<br/>}` : '}';
+  let formattedProperties = properties.join("<br/>");
+  let closingBrace = properties.length > 0 ? `<br/>}` : "}";
   // csstoggle : css 접기/펴기 기능. bi 남겨놔야 부트아이콘 적용됨.
-  let mediaTag = mediaQuery ? `
+  let mediaTag = mediaQuery
+    ? `
     <div class="media">
     <span class="csstoggle bi" onclick="toggleActive(this)"></span>
     @media 
     <span class="media_range">${mediaQuery}</span>
-    </div> {<br>` : '';
+    </div> {<br>`
+    : "";
   // let openMedia = mediaQuery ? "{" : "";
   let closeMedia = mediaQuery ? `<span class="inner_bracket"><br>}</span>` : "";
 
   /// 미디어쿼리있을때 없을때 괄호색 다르게
-  if (rule.selectorText) { // csstoggle : css 접기/펴기 기능. bi 남겨놔야 부트아이콘 적용됨.
+  if (rule.selectorText) {
+    // csstoggle : css 접기/펴기 기능. bi 남겨놔야 부트아이콘 적용됨.
     selector = `<span class="selector"><span class="csstoggle bi " onclick="toggleActive(this)"></span> ${rule.selectorText}</span> <span >{</span><br/>`;
     if (mediaTag) {
       selector = `<span class="selector">${rule.selectorText}</span> <span class="inner_bracket">{</span><br/>`;
-    } 
+    }
   } else {
     selector = "";
   }
@@ -78,37 +89,35 @@ function formatCSSRule(rule, mediaQuery) {
   </div>`;
 }
 
-  // css 접기/펴기함수
-  // document.
-  function toggleActive(element) {
-    const el = element.parentElement.parentElement; // css-rule 태그까지 접근
-    el.classList.toggle('active'); // css-rule에 active 추가
-    element.classList.toggle('active'); // 자신에게도 active 추가
-
-    
+// css 접기/펴기함수
+// document.
+function toggleActive(element) {
+  const el = element.parentElement.parentElement; // css-rule 태그까지 접근
+  el.classList.toggle("active"); // css-rule에 active 추가
+  element.classList.toggle("active"); // 자신에게도 active 추가
 }
- // 전체접기
+// 전체접기
 function toggleAll() {
-  const el = document.querySelectorAll('.css-rule'); 
+  const el = document.querySelectorAll(".css-rule");
   // querySelectorAll 로 모든 태그를 잡았으니 forEach로 적용해야됨.
-  el.forEach(function(element) {
-      element.classList.toggle('active');
+  el.forEach(function (element) {
+    element.classList.toggle("active");
   });
 }
 
 function processStylesheet(stylesheet) {
-  var result = '';
+  var result = "";
   var rules;
 
   try {
-      rules = stylesheet.rules || stylesheet.cssRules;
+    rules = stylesheet.rules || stylesheet.cssRules;
   } catch (e) {
-      console.error("Cannot access rules of stylesheet: ", stylesheet.href);
-      return '';
+    console.error("Cannot access rules of stylesheet: ", stylesheet.href);
+    return "";
   }
 
   for (var j = 0; j < rules.length; j++) {
-      result += formatCSSRule(rules[j]);
+    result += formatCSSRule(rules[j]);
   }
 
   return result;
@@ -116,24 +125,24 @@ function processStylesheet(stylesheet) {
 
 function getAllCSS() {
   var stylesheets = document.styleSheets;
-  var allCSS = '';
+  var allCSS = "";
 
   for (var i = 0; i < stylesheets.length; i++) {
-      if (stylesheets[i].href && stylesheets[i].href.includes(bootstrapver)) {
-          allCSS += processStylesheet(stylesheets[i]);
-      }
+    if (stylesheets[i].href && stylesheets[i].href.includes(bootstrapver)) {
+      allCSS += processStylesheet(stylesheets[i]);
+    }
   }
 
   return allCSS;
 }
 function recommendClass(v) {
-  document.getElementById('classSearch').value = v;  
+  document.getElementById("classSearch").value = v;
 }
 
 function searchClass() {
-  var input = document.getElementById('classSearch').value.toLowerCase();
+  var input = document.getElementById("classSearch").value.toLowerCase();
   var stylesheets = document.styleSheets;
-  var result = '';
+  var result = "";
 
   let hasResults = false; // 결과가 있는지 확인하는 플래그
 
@@ -143,24 +152,33 @@ function searchClass() {
       try {
         rules = stylesheets[i].rules || stylesheets[i].cssRules;
       } catch (e) {
-        console.error("Cannot access rules of stylesheet: ", stylesheets[i].href);
+        console.error(
+          "Cannot access rules of stylesheet: ",
+          stylesheets[i].href
+        );
         continue;
       }
 
       for (var j = 0; j < rules.length; j++) {
         var rule = rules[j];
-        var mediaQuery = '';
+        var mediaQuery = "";
 
         if (rule instanceof CSSMediaRule) {
           mediaQuery = rule.conditionText;
           for (var k = 0; k < rule.cssRules.length; k++) {
             var innerRule = rule.cssRules[k];
-            if (innerRule.selectorText && innerRule.selectorText.toLowerCase().includes(input )) {
+            if (
+              innerRule.selectorText &&
+              innerRule.selectorText.toLowerCase().includes(input)
+            ) {
               result += formatCSSRule(innerRule, mediaQuery);
               hasResults = true;
             }
           }
-        } else if (rule.selectorText && rule.selectorText.toLowerCase().includes(input )) {
+        } else if (
+          rule.selectorText &&
+          rule.selectorText.toLowerCase().includes(input)
+        ) {
           result += formatCSSRule(rule);
           hasResults = true;
         }
@@ -170,13 +188,12 @@ function searchClass() {
 
   // 결과가 없으면 메시지 표시
   if (!hasResults) {
-    result = 'No results found.';
+    result = "No results found.";
   }
 
-  document.getElementById('result').innerHTML = result;
-
+  document.getElementById("result").innerHTML = result;
 }
 
-window.onload = function() {
-  document.getElementById('result').innerHTML = getAllCSS();
+window.onload = function () {
+  // document.getElementById('result').innerHTML = getAllCSS();
 };

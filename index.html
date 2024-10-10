@@ -4,10 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootstrap Search</title>
+    <!-- SEO -->
+    <meta name="author" content="Yoha Sim" />
+    <meta name="robots" content="index, follow" />
     <meta
       name="description"
       content="Search and explore CSS classes in Bootstrap v4.6.2 and v5.3.2 using this unofficial tool. Effortlessly discover Bootstrap styles!"
     />
+    <meta
+      name="keywords"
+      content="Bootstrap, CSS classes, Bootstrap 5.3.2, Bootstrap 4.6.2, CSS search tool, Bootstrap explorer, frontend, web development, CSS utility classes"
+    />
+    <!-- OG -->
+    <meta property="og:title" content="Bootstrap CSS Class Search Tool" />
+    <meta
+      property="og:description"
+      content="Easily search and explore CSS classes in Bootstrap v4.6.2 and v5.3.2 with this unofficial tool."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bootstrapsearch.vercel.app/" />
+    <meta
+      property="og:image"
+      content="https://bootstrapsearch.vercel.app/img/Bootstrap_Search_info.png"
+    />
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bootstrap CSS Class Search Tool" />
+    <meta
+      name="twitter:description"
+      content="Easily search and explore CSS classes in Bootstrap v4.6.2 and v5.3.2."
+    />
+    <meta
+      name="twitter:image"
+      content="https://bootstrapsearch.vercel.app/img/Bootstrap_Search_info.png"
+    />
+
+    <!-- Style -->
     <link
       rel="shortcut icon"
       href="./img/bt_search_logo_favicon.ico"
@@ -71,7 +103,7 @@
           </button>
         </div>
 
-        <div class="ms-2 d-flex justify-content-center align-items-center">
+        <div class="ms-2 d-flex justify-content-center align-items-end">
           <div
             class="ms-2 mt-3 d-flex justify-content-center align-items-center"
           >
@@ -95,8 +127,8 @@
             <div class="mx-3">
               <a
                 target="_blank"
-                href="https://github.com/YoHaiYo/Bootstrap-Search.github.io"
-                >GitHub</a
+                href="https://yohasim.medium.com/discover-bootstrap-classes-effortlessly-with-my-new-tool-fe82f1515c29"
+                >Blog</a
               >
             </div>
           </div>
@@ -129,6 +161,17 @@
 
       <div id="result">
         <!-- id="result" : 동적객체로 검색결과 생성관리 -->
+        <div
+          class="d-flex justify-content-center align-items-center flex-column"
+          style="height: 50vh"
+        >
+          <h3 class="text-muted text-center">
+            Search and explore CSS classes in Bootstrap !
+          </h3>
+          <h4 class="text-muted text-center">
+            (If you search without entering anything, search in all classes.)
+          </h4>
+        </div>
       </div>
     </main>
     <script
